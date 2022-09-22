@@ -46,7 +46,7 @@ publicationYear(half_of_a_yellow_sun, 2006).
 publicationYear(station_eleven, 2014).
 publicationYear(barneys_version, 1997).
 publicationYear(the_apprenticeship_of_duddy_kravitz, 1999).
-publicationYear(he_song_of_achilles, 2012).
+publicationYear(the_song_of_achilles, 2012).
 publicationYear(the_golden_enlcaves, 2019).
 publicationYear(the_starless_sea, 2019).
 publicationYear(hollow_kingdom, 2019).
