@@ -24,6 +24,7 @@ authorOf(erin_morgenstern, the_starless_sea).
 authorOf(kira_buxton, hollow_kingdom).
 authorOf(naomi_novik, spinning_silver).
 authorOf(haruki_murakami, hear_the_wind_sing).
+authorOf(haruki_murakami, a_wild_sheep_chase).
 
 %%%%%  ATOMIC: publishedBy
 % Add the atomic propositions for publishedBy in this section
@@ -38,6 +39,7 @@ publishedBy(doubleday_books, the_starless_sea).
 publishedBy(grand_central, hollow_kingdom).
 publishedBy(del_ray, spinning_silver).
 publishedBy(kodansha_int, hear_the_wind_sing).
+publishedBy(vintage, a_wild_sheep_chase).
 
 %%%%% ATOMIC: publicationYear
 % Add the atomic propositions for publicationYear in this section
@@ -52,6 +54,7 @@ publicationYear(the_starless_sea, 2019).
 publicationYear(hollow_kingdom, 2019).
 publicationYear(spinning_silver, 2018).
 publicationYear(hear_the_wind_sing, 1979).
+publicationYear(a_wild_sheep_chase, 2002).
 
 %%%%% END
 % DO NOT PUT ANY ATOMIC PROPOSITIONS OR LINES BELOW
