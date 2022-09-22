@@ -2,9 +2,9 @@
 % If you only have 2 group members, leave the last space blank
 %
 %%%%%
-%%%%% NAME: 
-%%%%% NAME:
-%%%%% NAME:
+%%%%% NAME: Karanvir Heer
+%%%%% NAME: Ramneek Riar
+%%%%% NAME: Shruti Sharma
 %
 % Add your queries below.For example, if you want to add the query "pred(X, constant).", 
 % it should appear as follows:
@@ -18,22 +18,22 @@
 % Each query below is labelled with an English description of what should be queried for.
 
 % Did Chimamanda Ngozi Adichie write "Half of a Yellow Sun"?
-QUERY 1: .
+QUERY 1: authorOf(chimamanda_ngozi_adichie, half_of_a_yellow_sun).
 
 % Who published "Station Eleven"?
-QUERY 2: .
+QUERY 2: publishedBy(X, station_eleven).
 
 % Did the same author write both "The Apprenticeship of Duddy Kravitz" and "Barney's Version", and if so, who was it?
-QUERY 3: .
+QUERY 3: authorOf(X, the_apprenticeship_of_duddy_kravitz), authorOf(X, barneys_version).
 
 % Was there a book published in 2019 that was not published by Random House or Harper Collins? 
-QUERY 4: .
+QUERY 4: publishedBy(X, Y), publicationYear(Y, 2019), \+ X=Y, \+ X=random_house, \+ X=harper_collins.
 
 % Did any author write at least two different books, each with a different publisher?
-QUERY 5: .
+QUERY 5: authorOf(X, Y1), authorOf(X, Y2), publishedBy(Z1, Y1), publishedBy(Z2, Y2), \+ Z1=Z2, \+ Y1=Y2.
 
 % Did the author of "A Wild Sheep Chase" write any books before that one?
-QUERY 6: .
+QUERY 6: authorOf(Author, a_wild_sheep_chase), publicationYear(a_wild_sheep_chase, SheepYear), authorOf(Author, OtherBook), publicationYear(OtherBook, OtherYear), OtherYear<SheepYear, \+ OtherBook=a_wild_sheep_chase.
 
 % Was there a year from 1977 to 1992 that Stephen King did not publish a book?
 QUERY 7: .
