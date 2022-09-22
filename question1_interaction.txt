@@ -6,55 +6,59 @@
 %%%%% NAME: Ramneek Riar
 %%%%% NAME: Shruti Sharma
 %
-% Add the required atomic propositions and rules in the corresponding sections. 
-% If you put the propositions and rules in the wrong sections, you may lose marks.
-%
-% You may add additional comments as you choose but DO NOT MODIFY the comment lines below
+% Add your interaction below
 
-%%%%% ATOMIC: authorOf
-% Add the atomic propositions for authorOf in this section
+?- authorOf(chimamanda_ngozi_adichie, half_of_a_yellow_sun).
+Yes (0.00s cpu)
 
-authorOf(chimamanda_ngozi_adichie, half_of_a_yellow_sun).
-authorOf(emily_mandel, station_eleven).
-authorOf(mordecai_richler, barneys_version).
-authorOf(mordecai_richler, the_apprenticeship_of_duddy_kravitz).
-authorOf(madeline_miller, the_song_of_achilles).
-authorOf(naomi_novik, the_golden_enlcaves).
-authorOf(erin_morgenstern, the_starless_sea).
-authorOf(kira_buxton, hollow_kingdom).
-authorOf(naomi_novik, spinning_silver).
-authorOf(haruki_murakami, hear_the_wind_sing).
-authorOf(haruki_murakami, a_wild_sheep_chase).
+?- publishedBy(X, station_eleven).
+X = knopf
+Yes (0.00s cpu)
 
-%%%%%  ATOMIC: publishedBy
-% Add the atomic propositions for publishedBy in this section
+?- authorOf(X, the_apprenticeship_of_duddy_kravitz), authorOf(X, barneys_version).
+X = mordecai_richler
+Yes (0.00s cpu)
 
-publishedBy(knopf, half_of_a_yellow_sun).
-publishedBy(knopf, station_eleven).
-publishedBy(chatto_windus, barneys_version).
-publishedBy(gallery_books, the_apprenticeship_of_duddy_kravitz).
-publishedBy(harper_collins, the_song_of_achilles).
-publishedBy(random_house, the_golden_enlcaves).
-publishedBy(doubleday_books, the_starless_sea).
-publishedBy(grand_central, hollow_kingdom).
-publishedBy(del_ray, spinning_silver).
-publishedBy(kodansha_int, hear_the_wind_sing).
-publishedBy(vintage, a_wild_sheep_chase).
+?- publishedBy(X, Y), publicationYear(Y, 2019), \+ X = Y, \+ X = random_house, \+ X = harper_collins.
+X = doubleday_books
+Y = the_starless_sea
+Yes (0.00s cpu, solution 1, maybe more)
+X = grand_central
+Y = hollow_kingdom
+Yes (0.12s cpu, solution 2, maybe more)
+No (0.22s cpu)
 
-%%%%% ATOMIC: publicationYear
-% Add the atomic propositions for publicationYear in this section
+?- authorOf(X, Y1), authorOf(X, Y2), publishedBy(Z1, Y1), publishedBy(Z2, Y2), \+ Z1 = Z2, \+ Y1 = Y2.
+X = mordecai_richler
+Y1 = barneys_version
+Y2 = the_apprenticeship_of_duddy_kravitz
+Z1 = chatto_windus
+Z2 = gallery_books
+Yes (0.00s cpu, solution 1, maybe more)
+X = mordecai_richler
+Y1 = the_apprenticeship_of_duddy_kravitz
+Y2 = barneys_version
+Z1 = gallery_books
+Z2 = chatto_windus
+Yes (0.23s cpu, solution 2, maybe more)
+X = naomi_novik
+Y1 = the_golden_enlcaves
+Y2 = spinning_silver
+Z1 = random_house
+Z2 = del_ray
+Yes (0.32s cpu, solution 3, maybe more)
+X = naomi_novik
+Y1 = spinning_silver
+Y2 = the_golden_enlcaves
+Z1 = del_ray
+Z2 = random_house
+Yes (0.36s cpu, solution 4, maybe more)
+No (0.37s cpu)
 
-publicationYear(half_of_a_yellow_sun, 2006).
-publicationYear(station_eleven, 2014).
-publicationYear(barneys_version, 1997).
-publicationYear(the_apprenticeship_of_duddy_kravitz, 1999).
-publicationYear(the_song_of_achilles, 2012).
-publicationYear(the_golden_enlcaves, 2019).
-publicationYear(the_starless_sea, 2019).
-publicationYear(hollow_kingdom, 2019).
-publicationYear(spinning_silver, 2018).
-publicationYear(hear_the_wind_sing, 1979).
-publicationYear(a_wild_sheep_chase, 2002).
-
-%%%%% END
-% DO NOT PUT ANY ATOMIC PROPOSITIONS OR LINES BELOW
+?- authorOf(Author, a_wild_sheep_chase), publicationYear(a_wild_sheep_chase, SheepYear), authorOf(Author, OtherBook), publicationYear(OtherBook, OtherYear), OtherYear < SheepYear, \+ OtherBook = a_wild_sheep_chase.
+Author = haruki_murakami
+SheepYear = 2002
+OtherBook = hear_the_wind_sing
+OtherYear = 1979
+Yes (0.00s cpu, solution 1, maybe more)
+No (0.12s cpu)
