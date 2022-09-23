@@ -14,41 +14,43 @@
 %%%%% ATOMIC: cost
 % Add the atomic propositions for cost in this section
 
-cost(bread, 4)
-cost(lettuce, 2)
-cost(apple, 1)
-cost(chocolate_bar, 3)
-cost(ginger_ale, 2)
+cost(bread, 4).
+cost(lettuce, 2).
+cost(apple, 1).
+cost(chocolate_bar, 3).
+cost(ginger_ale, 2).
 
 %%%%%  ATOMIC: twoForOneSale
 % Add the atomic propositions for twoForOneSale in this section
 
-twoForOneSale(bread)
-twoForOneSale(apple)
+twoForOneSale(bread).
+twoForOneSale(apple).
 
 %%%%% ATOMIC: taxable
 % Add the atomic propositions for taxable in this section
 
-taxable(chocolate_bar)
-taxable(ginger_ale)
+taxable(chocolate_bar).
+taxable(ginger_ale).
 
 %%%%% ATOMIC: numPurchased
 % Add the atomic propositions for numPurchased in this section
 
-numPurchased(bread, 2)
-numPurchased(lettuce, 3)
-numPurchased(apple, 6)
-numPurchased(chocolate_bar, 1)
-numPurchased(ginger_ale, 2)
+numPurchased(bread, 2).
+numPurchased(lettuce, 3).
+numPurchased(apple, 6).
+numPurchased(chocolate_bar, 1).
+numPurchased(ginger_ale, 2).
 
 %%%%% ATOMIC: taxRate
 % Add the atomic propositions for taxRate in this section
 
-taxRate(0.13)
+taxRate(0.13).
 
 %%%%% RULE: costAfterTax
 % Add the rule(s) for costAfterTax in this section
 
+costAfterTax(Item, AfterTax) :- taxable(Item), cost(Item, Cost), taxRate(Tax), AfterTax is Cost*(Tax+1).
+costAfterTax(Item, AfterTax) :- cost(Item, Cost), AfterTax is Cost.
 
 %%%%% RULE: costAfterTaxAndSale
 % Add the rule(s) for costAfterTaxAndSale in this section
