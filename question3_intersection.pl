@@ -51,7 +51,12 @@ lightColour(west, red).
 
 %%%%% RULE: canGo
 % Add the rules for canGo in this section
+canGo(Car, Direction) :- lightColour(Direction, green), facing(Car, Direction).
+canGo(Car, Direction) :- lightColour(X, green), facing(Car, X), counterclockwise(X, Direction).
 
+canGo(Car, Direction) :- lightColour(X, yellow), facing(Car, X), counterclockwise(X, Direction).
+canGo(Car, Direction) :- lightColour(X, yellow), facing(Car, X), clockwise(X, Direction).
+canGo(Car, Direction) :- lightColour(X, red), not facing(Y, Direction).
 
 %%%%% END
 % DO NOT PUT ANY ATOMIC PROPOSITIONS OR LINES BELOW
