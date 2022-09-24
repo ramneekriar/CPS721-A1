@@ -55,12 +55,13 @@ costAfterTax(Item, AfterTax) :- cost(Item, Cost), AfterTax is Cost.
 %%%%% RULE: costAfterTaxAndSale
 % Add the rule(s) for costAfterTaxAndSale in this section
 
-costAfterTaxAndSale(Item, AfterSaleAndTax) :-  twoForOneSale(Item), numPurchased(Item, Count), SalePrice is (Count//2) + (Count+2), 
-costAfterTaxAndSale(Item, AfterSaleAndTax) :-  costAfterTax(Item, AfterTax), numPurchased(Item, Count),
+costAfterTaxAndSale(Item, AfterSaleAndTax) :- twoForOneSale(Item), costAfterTax(Item, AfterTax), numPurchased(Item, Count), R is mod(Count, 2), AfterSaleAndTax is AfterTax*((Count // 2) + R).
+costAfterTaxAndSale(Item, AfterSaleAndTax) :- costAfterTax(Item, AfterTax), numPurchased(Item, Count), AfterSaleAndTax is (AfterTax*Count).
 
 %%%%% RULE: totalCost
 %  Add the rule(s) for totalCost in this section
 
+totalCost(Cost) :- costAfterTaxAndSale(bread, Bread_Cost), costAfterTaxAndSale(lettuce, Lettuce_Cost), costAfterTaxAndSale(apple, Apple_Cost), costAfterTaxAndSale(chocolate_bar, Chocolate_bar_Cost), costAfterTaxAndSale(ginger_ale, Ginger_ale_Cost), Cost is (Bread_Cost+Lettuce_Cost+Apple_Cost+Chocolate_bar_Cost+Ginger_ale_Cost).
 
 %%%%% END
-% DO NOT PUT ANY ATOMIC PROPOSITIONS OR LINES BELOW
+% DO NOT PUT ANY ATOMIC PROPOSITIONS OR LINES BELOW```

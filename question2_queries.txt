@@ -15,20 +15,20 @@
 % where 2 is the number of the query. Omit the "%" on the QUERY line below.
 % Don't forget to end queries with a period.
 
-% Query description
-QUERY 1: .
+% Retrieves the original cost of one unit of ginger_ale and adds tax if ginger_ale is taxable
+QUERY 1: costAfterTax(ginger_ale, X).
 
-% Query description
-QUERY 2: .
+% Retrieves the original cost of one unit of bread and adds tax if bread is taxable
+QUERY 2: costAfterTax(bread, X).
 
-% Query description
-QUERY 3: .
+% Retrieves the cost of total number of lettuce purchased and adds sale and tax if applicable
+QUERY 3: costAfterTaxAndSale(lettuce, X).
 
-% Query description
-QUERY 4: .
+% Retrieves the cost of total number of apple purchased and adds sale and tax if applicable
+QUERY 4: costAfterTaxAndSale(apple, X).
 
-% Query description
-QUERY 5: .
+% Retrieves the total cost of items purchased including any sales and tax
+QUERY 5: totalCost(X).
 
 %%%%% END
 % DO NOT PUT ANY ATOMIC PROPOSITIONS OR LINES BELOW
