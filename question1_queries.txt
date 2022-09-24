@@ -27,10 +27,10 @@ QUERY 2: publishedBy(X, station_eleven).
 QUERY 3: authorOf(X, the_apprenticeship_of_duddy_kravitz), authorOf(X, barneys_version).
 
 % Was there a book published in 2019 that was not published by Random House or Harper Collins? 
-QUERY 4: publishedBy(X, Y), publicationYear(Y, 2019), \+ X=Y, \+ X=random_house, \+ X=harper_collins.
+QUERY 4: publishedBy(Publisher, Book), publicationYear(Book, 2019), \+ Publisher=random_house, \+ Publisher=harper_collins.
 
 % Did any author write at least two different books, each with a different publisher?
-QUERY 5: authorOf(X, Y1), authorOf(X, Y2), publishedBy(Z1, Y1), publishedBy(Z2, Y2), \+ Z1=Z2, \+ Y1=Y2.
+QUERY 5: authorOf(Author, Book1), authorOf(Author, Book2), publishedBy(Publisher1, Book1), publishedBy(Publisher2, Book2), \+ Publisher1=Publisher2, \+ Book1=Book2.
 
 % Did the author of "A Wild Sheep Chase" write any books before that one?
 QUERY 6: authorOf(Author, a_wild_sheep_chase), publicationYear(a_wild_sheep_chase, SheepYear), authorOf(Author, OtherBook), publicationYear(OtherBook, OtherYear), OtherYear<SheepYear, \+ OtherBook=a_wild_sheep_chase.
@@ -39,13 +39,17 @@ QUERY 6: authorOf(Author, a_wild_sheep_chase), publicationYear(a_wild_sheep_chas
 QUERY 7: .
 
 % Was there an author who published a book in 3 consecutive years sometime after 2005 (possibly including 2005)?
-QUERY 8: .
+QUERY 8: authorOf(Author, Book1), authorOf(Author, Book2), authorOf(Author, Book3), publicationYear(Book1, Year1), publicationYear(Book2, Year2), publicationYear(Book3, Year3), Year1>=2005, Year1+1 =:= Year2, Year1+2 =:= Year3.
 
 % Did any publisher only publish exactly one book in 1995?
-QUERY 9
+% Did anyone publish ONLY one book in 1995?
+% Did anyone publish no books, or more than one book in 1995?
+
+QUERY 9: publishedBy(Publisher, Book1), publicationYear(Book1, 1995), \+ (publishedBy(Publisher, Book2), publicationYear(Book2, 1995), \+ Book1=Book2).
+
 
 % What was the earliest year that Macmillan Publishers published a book in? 
-QUERY 10
+QUERY 10:
 
 %%%%% END
 % DO NOT PUT ANY ATOMIC PROPOSITIONS OR LINES BELOW
