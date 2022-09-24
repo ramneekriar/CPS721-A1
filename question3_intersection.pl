@@ -45,10 +45,6 @@ lightColour(south, green).
 lightColour(east, red).
 lightColour(west, red).
 
-%%%%% ATOMIC: clockwise
-% Add the atomic propositions for clockwise (part a) in this section
-
-
 %%%%% RULE: canGo
 % Add the rules for canGo in this section
 canGo(Car, Direction) :- lightColour(Direction, green), facing(Car, Direction).
