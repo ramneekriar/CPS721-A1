@@ -55,6 +55,8 @@ costAfterTax(Item, AfterTax) :- cost(Item, Cost), AfterTax is Cost.
 %%%%% RULE: costAfterTaxAndSale
 % Add the rule(s) for costAfterTaxAndSale in this section
 
+costAfterTaxAndSale(Item, AfterSaleAndTax) :-  twoForOneSale(Item), numPurchased(Item, Count), SalePrice is (Count//2) + (Count+2), 
+costAfterTaxAndSale(Item, AfterSaleAndTax) :-  costAfterTax(Item, AfterTax), numPurchased(Item, Count),
 
 %%%%% RULE: totalCost
 %  Add the rule(s) for totalCost in this section
