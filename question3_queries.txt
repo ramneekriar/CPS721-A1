@@ -53,7 +53,7 @@ QUERY 5: canGo(chevrolet, south).
 % Chevrolet going East, stopped at red.
 % Chevrolet turning right, towards South
 % Toyota going South.
-% SHOULD FAIL
+% SHOULD PASS
 QUERY 6: canGo(chevrolet, south).
 
 %%%%% END
