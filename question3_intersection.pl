@@ -47,12 +47,24 @@ lightColour(west, red).
 
 %%%%% RULE: canGo
 % Add the rules for canGo in this section
+
+% Car can go straight through an intersection when light is green
 canGo(Car, Direction) :- lightColour(Direction, green), facing(Car, Direction).
+
+% Car can turn right when light is green
 canGo(Car, Direction) :- lightColour(X, green), facing(Car, X), counterclockwise(X, Direction).
 
-canGo(Car, Direction) :- lightColour(X, yellow), facing(Car, X), counterclockwise(X, Direction).
-canGo(Car, Direction) :- lightColour(X, yellow), facing(Car, X), clockwise(X, Direction).
-canGo(Car, Direction) :- lightColour(X, red), not facing(Y, Direction).
+% Car can turn left when light is green
+canGo(Car, Direction) :- lightColour(X, green), facing(Car, X), clockwise(X, Direction), reverseDirection(X, OppositeDir), not(facing(Car2, OppositeDir)).
+
+% Car can turn right when light is yellow
+% canGo(Car, Direction) :- lightColour(X, yellow), facing(Car, X), counterclockwise(X, Direction).
+
+% Car can turn left when light is yellow (assuming traffic facing opposite to car stops)
+canGo(Car, Direction) :- lightColour(X, yellow), facing(Car, X), clockwise(X, Direction), reverseDirection(X, OppositeDir).
+
+% Car can turn right when light is red
+% canGo(Car, Direction) :- lightColour(X, red), not facing(Y, Direction).
 
 %%%%% END
 % DO NOT PUT ANY ATOMIC PROPOSITIONS OR LINES BELOW
