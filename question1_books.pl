@@ -27,9 +27,9 @@ authorOf(haruki_murakami, a_wild_sheep_chase).
 authorOf(james_patterson, kiss_the_girls).
 authorOf(james_patterson, random_case).
 authorOf(test_author, answer_case).
-authorOf(macmillan_author, first_book).
 authorOf(macmillan_author, second_book).
 authorOf(macmillan_author, third_book).
+authorOf(macmillan_author, first_book).
 
 %%%%%  ATOMIC: publishedBy
 % Add the atomic propositions for publishedBy in this section
@@ -47,14 +47,13 @@ publishedBy(vintage, a_wild_sheep_chase).
 publishedBy(grand_central_books, kiss_the_girls).
 publishedBy(grand_central_books, random_case).
 publishedBy(test_publisher, answer_case).
-publishedBy(macmillan_publishers, first_book).
 publishedBy(macmillan_publishers, second_book).
 publishedBy(macmillan_publishers, third_book).
+publishedBy(macmillan_publishers, first_book).
 
 %%%%% ATOMIC: publicationYear
 % Add the atomic propositions for publicationYear in this section
 
-publicationYear(first_book, 1900).
 publicationYear(second_book, 1901).
 publicationYear(third_book, 1902).
 publicationYear(hear_the_wind_sing, 1979).
@@ -70,6 +69,7 @@ publicationYear(spinning_silver, 2018).
 publicationYear(the_golden_enlcaves, 2019).
 publicationYear(the_starless_sea, 2019).
 publicationYear(a_deadly_education, 2020).
+publicationYear(first_book, 1900).
 
 %%%%% END
 % DO NOT PUT ANY ATOMIC PROPOSITIONS OR LINES BELOW

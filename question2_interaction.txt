@@ -7,3 +7,23 @@
 %%%%% NAME: Shruti Sharma
 %
 % Add your interaction below
+
+?- costAfterTax(ginger_ale, X).
+X = 2.26
+Yes (0.00s cpu)
+
+?- costAfterTax(bread, X).
+X = 4
+Yes (0.00s cpu)
+
+?- costAfterTaxAndSale(lettuce, X).
+X = 6
+Yes (0.00s cpu)
+
+?- costAfterTaxAndSale(apple, X).
+X = 3
+Yes (0.00s cpu)
+
+?- totalCost(X).
+X = 20.91
+Yes (0.00s cpu)

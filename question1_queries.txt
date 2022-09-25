@@ -49,7 +49,8 @@ QUERY 9: publishedBy(Publisher, Book1), publicationYear(Book1, 1995), \+ (publis
 
 
 % What was the earliest year that Macmillan Publishers published a book in? 
-QUERY 10:
+% What was the first year Macmillan Publishers published a book?
+QUERY 10: publishedBy(macmillan_publishers, Book), publicationYear(Book, Year).
 
 %%%%% END
 % DO NOT PUT ANY ATOMIC PROPOSITIONS OR LINES BELOW
