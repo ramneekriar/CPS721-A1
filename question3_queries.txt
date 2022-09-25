@@ -15,27 +15,46 @@
 % where 2 is the number of the query. Omit the "%" on the QUERY line below.
 % Don't forget to end queries with a period.
 
-% Query description
-QUERY 1: 
+% NORTH AND SOUTH ARE GREEN
+% Nissan takes right on green and goes east
+% Toyota goes straight on green and continues south
+% SHOULD PASS
+QUERY 1: canGo(nissan, east), canGo(toyota, south).
 
-canGo(Car, Direction) :- lightColour(Direction, green), facing(Car, Direction).
+% NORTH AND SOUTH ARE GREEN
+% Nissan going North, attempts to turn Left, towards West
+% Toyota going South, continues South
+% SHOULD FAIL
+QUERY 2: canGo(nissan, west).
 
-canGo(Car, Direction) :- lightColour(X, green), facing(Car, X), counterclockwise(X, Direction).
+% MAKE NORTH AND SOUTH YELLOW 
+% Light turns yellow for North and South
+% Nissan going North, attempts to turn Left, towards West.
+% Toyota continues going South. Should stop.
+% SHOULD PASS
+QUERY 3: canGo(nissan, west).
 
-% Query description
-QUERY 2: .
+% MAKE NORTH AND SOUTH YELLOW 
+% Light turns yellow for North and South
+% Nissan continues going North. Should stop.
+% Toyota going South, attempts to turn right, towards west.
+% SHOULD FAIL
+QUERY 4: canGo(toyota, west).
 
-% Query description
-QUERY 3: 
-canGo(Car, Direction) :- lightColour(X, yellow), facing(Car, X), counterclockwise(X, Direction).
+% NORTH AND SOUTH ARE GREEN
+% Chevrolet going East, stopped at red.
+% Chevrolet turning right, towards South
+% Toyota going South.
+% SHOULD PASS
+QUERY 5: canGo(chevrolet, south).
 
-% Query description
-QUERY 4: 
-canGo(Car, Direction) :- lightColour(X, yellow), facing(Car, X), clockwise(X, Direction).
-
-% Query description
-QUERY 5: 
-canGo(Car, Direction) :- lightColour(X, red), not facing(Y, Direction).
+%--------------- PERSONAL TEST QUERIES -------------------
+% MAKE NORTH AND SOUTH YELLOW 
+% Chevrolet going East, stopped at red.
+% Chevrolet turning right, towards South
+% Toyota going South.
+% SHOULD FAIL
+QUERY 6: canGo(chevrolet, south).
 
 %%%%% END
 % DO NOT PUT ANY ATOMIC PROPOSITIONS OR LINES BELOW
