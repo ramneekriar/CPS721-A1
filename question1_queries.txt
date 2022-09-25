@@ -42,11 +42,7 @@ QUERY 7: .
 QUERY 8: authorOf(Author, Book1), authorOf(Author, Book2), authorOf(Author, Book3), publicationYear(Book1, Year1), publicationYear(Book2, Year2), publicationYear(Book3, Year3), Year1>=2005, Year1+1 =:= Year2, Year1+2 =:= Year3.
 
 % Did any publisher only publish exactly one book in 1995?
-% Did anyone publish ONLY one book in 1995?
-% Did anyone publish no books, or more than one book in 1995?
-
 QUERY 9: publishedBy(Publisher, Book1), publicationYear(Book1, 1995), \+ (publishedBy(Publisher, Book2), publicationYear(Book2, 1995), \+ Book1=Book2).
-
 
 % What was the earliest year that Macmillan Publishers published a book in? 
 QUERY 10: publishedBy(macmillan_publishers, Book1), publicationYear(Book1, Book1Year), \+ (publishedBy(macmillan_publishers, Book2), publicationYear(Book2, Book2Year), Book2Year < Book1Year).  
