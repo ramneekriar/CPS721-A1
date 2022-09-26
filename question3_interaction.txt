@@ -13,7 +13,7 @@ Yes (0.00s cpu, solution 1, maybe more)
 No (0.02s cpu)
 
 ?- canGo(nissan, west).
-No (0.00s cpu
+No (0.00s cpu)
 
 ?- canGo(nissan, west).
 Yes (0.00s cpu, solution 1, maybe more)
