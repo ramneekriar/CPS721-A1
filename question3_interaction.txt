@@ -8,27 +8,20 @@
 %
 % Add your interaction below
 
-?- canGo(nissan, east).
-Yes (0.00s cpu, solution 1, maybe more);
-No (0.04s cpu)
-
-?- canGo(toyota, south).
-Yes (0.00s cpu, solution 1, maybe more);
-No (0.03s cpu)
-
-?- canGo(nissan, west).
-No (0.00s cpu)
-
-?- canGo(chevrolet, south).
-No (0.00s cpu)
-
-?- canGo(toyota, west).
-Yes (0.00s cpu, solution 1, maybe more);
+?- canGo(nissan, east), canGo(toyota, south).
+Yes (0.00s cpu, solution 1, maybe more)
 No (0.02s cpu)
 
-?- canGo(nissan, north).
-Yes (0.00s cpu, solution 1, maybe more);
-No (0.03s cpu)
+?- canGo(nissan, west).
+No (0.00s cpu
 
-?- canGo(toyota, east).
+?- canGo(nissan, west).
+Yes (0.00s cpu, solution 1, maybe more)
+No (0.01s cpu)
+
+?- canGo(toyota, west).
+Yes (0.00s cpu, solution 1, maybe more)
+No (0.02s cpu)
+
+?- canGo(chevrolet, south).
 No (0.00s cpu)
