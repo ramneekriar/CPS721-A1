@@ -22,8 +22,10 @@ Yes (0.00s cpu)
 
 ?- costAfterTaxAndSale(apple, X).
 X = 3
-Yes (0.00s cpu)
+Yes (0.00s cpu, solution 1, maybe more)
+No (0.03s cpu)
 
 ?- totalCost(X).
 X = 20.91
-Yes (0.00s cpu)
+Yes (0.00s cpu, solution 1, maybe more)
+No (0.02s cpu)
