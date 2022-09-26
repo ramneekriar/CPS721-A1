@@ -55,7 +55,6 @@ costAfterTax(Item, AfterTax) :- taxable(Item), cost(Item, Cost), taxRate(Tax), A
 % If Item is NOT Taxable
 costAfterTax(Item, AfterTax) :- not(taxable(Item)), cost(Item, Cost), AfterTax is Cost.
 
-
 %%%%% RULE: costAfterTaxAndSale
 % Add the rule(s) for costAfterTaxAndSale in this section
 
