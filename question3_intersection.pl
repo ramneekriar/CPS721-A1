@@ -40,8 +40,8 @@ facing(chevrolet, east).
 
 %%%%% ATOMIC: lightColour
 % Add the atomic propositions for lightColour (part b) in this section
-lightColour(north, yellow).
-lightColour(south, yellow).
+lightColour(north, green).
+lightColour(south, green).
 lightColour(east, red).
 lightColour(west, red).
 
