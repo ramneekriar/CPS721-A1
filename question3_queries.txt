@@ -38,14 +38,14 @@ QUERY 3: canGo(nissan, west).
 % Light turns yellow for North and South
 % Nissan continues going North. Should stop.
 % Toyota going South, attempts to turn right, towards west.
-% SHOULD FAIL
+% SHOULD PASS
 QUERY 4: canGo(toyota, west).
 
 % NORTH AND SOUTH ARE GREEN
 % Chevrolet going East, stopped at red.
 % Chevrolet turning right, towards South
 % Toyota going South.
-% SHOULD PASS
+% SHOULD FAIL
 QUERY 5: canGo(chevrolet, south).
 
 %--------------- PERSONAL TEST QUERIES -------------------

@@ -40,8 +40,8 @@ facing(chevrolet, east).
 
 %%%%% ATOMIC: lightColour
 % Add the atomic propositions for lightColour (part b) in this section
-lightColour(north, green).
-lightColour(south, green).
+lightColour(north, yellow).
+lightColour(south, yellow).
 lightColour(east, red).
 lightColour(west, red).
 
@@ -52,22 +52,22 @@ lightColour(west, red).
 canGo(Car, Direction) :- lightColour(Direction, green), facing(Car, Direction).
 
 % Car can turn right when light is green
-canGo(Car, Direction) :- lightColour(X, green), facing(Car, X), counterclockwise(X, Direction).
-
-% Car can turn left when light is green
-canGo(Car, Direction) :- lightColour(X, green), facing(Car, X), clockwise(X, Direction), reverseDirection(X, OppositeDir), not(facing(Car2, OppositeDir)).
+canGo(Car, Direction) :- lightColour(CurrDirection, green), facing(Car, CurrDirection), counterclockwise(CurrDirection, Direction).
 
 % Car can turn right when light is yellow
-canGo(Car, Direction) :- lightColour(X, yellow), facing(Car, X), counterclockwise(X, Direction).
+canGo(Car, Direction) :- lightColour(CurrDirection, yellow), facing(Car, CurrDirection), counterclockwise(CurrDirection, Direction).
 
-% Car can turn left when light is yellow (assuming traffic facing opposite to car stops)
-canGo(Car, Direction) :- lightColour(X, yellow), facing(Car, X), clockwise(X, Direction), reverseDirection(X, OppositeDir).
+% Car can turn left when light is yellow
+canGo(Car, Direction) :- lightColour(CurrDirection, yellow), facing(Car, CurrDirection), clockwise(CurrDirection, Direction), reverseDirection(CurrDirection, OppositeDir).
 
-% Car can turn right when light is red
-canGo(Car, Direction) :- lightColour(X, red), not facing(Y, Direction), counterclockwise(X, Direction).
+% Car can turn left when light is green
+canGo(Car, Direction) :- lightColour(CurrDirection, green), clockwise(CurrDirection, Direction), reverseDirection(CurrDirection, OppDirection), \+ Car=OtherCar, \+ canGo(OtherCar, OppDirection).
 
-% Car can turn right when light is red AND oncoming traffic has yellow light
-canGo(Car, Direction) :- lightColour(CurrDirection, red), lightColour(NewDirection, yellow), facing(OtherCar, NewDirection), counterclockwise(CurrDirection, NewDirection).
+% Car can turn right when light is red AND oppositeDir lights are yellow
+canGo(Car, Direction) :- lightColour(CurrDirection, red), facing(Car, CurrDirection), counterclockwise(CurrDirection, Direction), lightColour(Direction, yellow).
+
+% Car can turn right when light is red AND oppositeDir lights are green
+canGo(Car, Direction) :- lightColour(CurrDirection, red), facing(Car, CurrDirection), counterclockwise(CurrDirection, Direction), \+ Car=OtherCar, \+ canGo(OtherCar, Direction).
 
 %%%%% END
 % DO NOT PUT ANY ATOMIC PROPOSITIONS OR LINES BELOW
